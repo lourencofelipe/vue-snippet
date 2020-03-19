@@ -16,5 +16,9 @@
     <script src="/js/uikit-icons.min.js"></script>
 </head>
 <body>
+    <div id="app">
+        <p>Your input value is: {{ inputValue }}</p>
+        <input class="uk-input uk-form-large uk-width-1-1" v-on:input="ChangeValue" />
+    </div>
 </body>
 </html>
