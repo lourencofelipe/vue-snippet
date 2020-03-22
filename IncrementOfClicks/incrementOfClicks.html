@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+      <button v-on:click="incrementar">Clique</button>
+      <p>Botão clicado {{ cliques }} vezes</P>
+    </div>
+    
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                cliques: 0
+            },
+            methods: {
+                incrementar: function (){
+                    this.cliques++;
+                }
+            }
+        });    
+    </script>
+</body>
+</html>
