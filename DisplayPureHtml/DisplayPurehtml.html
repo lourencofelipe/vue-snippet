@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />    
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-html="greenSpan"></p>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                greenSpan: 'The Progressive <span style="color: green;">JavaScript Framework</span>'
+            }
+        });
+    </script>
+</body>
+</html>
