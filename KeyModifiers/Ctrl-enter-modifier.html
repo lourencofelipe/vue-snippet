@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </header>
+<body>
+    <div id="app">
+        <!-- Calls the event when the CTRL and enter key is pressed -->
+        <!--  modifier allows control of the exact combination of system modifiers needed to trigger an event. -->
+        <input v-on:keyup.ctrl.enter.exact="onKey" placeholder="CTRL + Enter" />
+    </div>
+    <script>
+        new Vue ({
+            el: '#app',
+            methods: {
+                onKey: function(event){
+                    console.log('Key ' + event.key + ' was pressed');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
