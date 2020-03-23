@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+        <p v-on:click="onClick('p', $event)">
+            VueJs Framework
+            <!-- .stop will act like stopPropagation(), but with VueJs we have the directive .stop -->
+            <button v-on:click.stop="onClick('button', $event)">Click here</button>
+        </p>
+
+        <form>
+            <input type="text" />
+            
+            <!-- Will just reload the page -->
+            <button type="submit" v-on:click="onSubmit">Send without the modifier</button>
+           
+            <!-- Will act like the preventDefault() method. -->
+            <button type="submit" v-on:click.prevent="onSubmit">Send with modifier</button>
+        </form>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            methods: {
+                onClick: function(targetElement, event){
+                    console.log(event.type, ':', targetElement);
+                },
+                onSubmit: function(event){
+                    console.log('submitted form');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
