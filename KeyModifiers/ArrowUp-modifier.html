@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+        <!-- Calls the event when the ArrowUp key is pressed -->
+        <input v-on:keyup.arrow-up="OnKey" placeholder="ArrowUp key" />
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            methods: {
+                OnKey: function(){
+                    console.log('Key' + event.key + ' was pressed');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
