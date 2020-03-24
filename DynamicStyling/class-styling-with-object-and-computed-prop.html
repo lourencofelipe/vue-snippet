@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+        margin-right: 10px;
+        background-color: gray;
+    }
+    
+    .purple {
+        background-color: purple;
+    }
+    
+    .green {
+        background-color: lightgreen;
+    }
+    
+    .blue {
+        background-color: lightblue;
+    }
+    
+    .circle {
+        border-radius: 100%;
+    }
+    
+    .marginBottom {
+        margin-bottom: 10px;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <h4>Click on the box</h4>
+        <p>Initially the box is green, beacuse the property "applyClass" is false. When
+            you click on the box, it will turn into a blue circle, and the property "applyClass"
+            will be true.
+        </p>
+        <div class="box" :class="cssClasses" @click="applyClass = !applyClass"></div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                applyClass: false,
+                className: ''
+            },
+            computed: {
+                cssClasses: function() {
+                    return {
+                        // Green will be aplyed when the property applyClass is false.
+                        green: !this.applyClass,
+                        blue: this.applyClass,
+                        circle: this.applyClass
+                    };
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
