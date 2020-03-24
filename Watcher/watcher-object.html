@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+       <p> Name: {{ fullName }}</p>
+       <button @click="updateNames">Update Names</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                firstName: 'Bruce',
+                lastName: 'Dickinson',
+                fullName: 'Bruce Dickinson'
+            },
+            // Using this 'computed property' will be better than use 'watcher' in this case.
+            // computed: {
+            //     fullName: function(){
+            //         return this.firstName + '' + this.lastName;
+            //     }
+            // },
+            watch: {
+                firstName: function(newFirstName, olderFirstName){
+                    this.fullName = newFirstName + '' + this.lastName;
+                },
+                lastName: function(newLastName, olderLastName){
+                    this.fullName = this.firstName + '' + newLastName;
+                }
+            },
+            methods: {
+                updateNames: function(event){
+                    this.firstName = 'Dickinson';
+                    this.lastName = ' Bruce';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
