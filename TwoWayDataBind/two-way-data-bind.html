@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+       <input :value="name" @input="name = $event.target.value">
+       <hr>
+       <!-- This way act like the previous one, but it's more simple and clean. -->
+       <input v-model="name">
+       <p>Name: {{ name }}</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'Bruce'
+            }
+        });
+    </script>
+</body>
+</html>
