@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+
+        <style>
+            #app div{
+                display: inline-block;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                background-color: gray;
+            }    
+        </style>
+    </head>
+<body>
+    <div id="app">
+        <div :style="cssStyle"></div>
+        <div style="width: 200px; height: 200px;" :style="{ backgroundColor: color, height: size + ' px' }"></div>
+        <div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flexbox' ]}"></div>
+        <br >
+        <input style="margin-bottom: 15px;" v-model="color" placeholder="Color">
+        <br >
+        <input v-model.number="size" placeholder="size in px">
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                color: '',
+                size: 200
+            },
+            computed: {
+                cssStyle: function(){
+                    return {
+                        backgroundColor: this.color,
+                        height: (this.size + 10) + 'px',
+                        width: '100px'
+                    };
+                }
+            }
+        });
+    </script>
+</body>
+</html>
