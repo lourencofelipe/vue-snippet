@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <style>
+        .box{
+                width: 200px;
+                height: 200px;
+                display: inline-block;
+                margin-right: 10px;
+                background-color: gray;
+            }
+            .purple{
+                background-color: purple;
+            }
+            .green {
+                background-color: lightgreen;
+            }
+            .blue{
+                background-color: lightblue;
+            }
+            .circle{
+                border-radius: 100%;
+            }
+            .marginBottom{
+                margin-bottom: 10px;
+            }
+    </style>
+<body>
+    <div id="app">
+        <h4>Type a class name</h4>
+        <ul>
+            <li>purple</li>
+            <li>green</li>
+            <li>blue</li>
+            <li>circle</li>
+        </ul>
+        <input class="marginBottom" v-model="className" placeholder="CSS class name">
+        <br>
+        <div class="box" :class="className"></div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                applyClass: false,
+                className: ''
+            }
+        });
+    </script>
+</body>
+</html>
