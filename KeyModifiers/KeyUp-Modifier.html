@@ -12,14 +12,19 @@
     </head>
 <body>
     <div id="app">
+        <h5 class="inputMargin">Open the console</h5>
+
+        <!-- Using v-on shortcuts -->
+
         <!-- Calls the event when any key is pressed  -->
-        <input class="inputMargin" v-on:keyup="onKey" placeholder="Any Key" />
+        <input class="inputMargin" @keyup="onKey" placeholder="Any Key" />
         <br />
         <!-- Calls the event when Enter key is pressed -->
-        <input class="inputMargin" v-on:keyup.enter="onKey" placeholder="Enter key" />
+        <input class="inputMargin" @keyup.enter="onKey" placeholder="Enter key" />
         <br />
         <!-- Calls the event when Enter key or Esc is pressed-->
-        <input class="inputMargin" v-on:keyup.enter.esc="onKey" placeholder="Enter key or Esc" />
+        
+        <input class="inputMargin" @keyup.enter.esc="onKey" placeholder="Enter key or Esc" />
     </div>
     <script>
         new Vue({
