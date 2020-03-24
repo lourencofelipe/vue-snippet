@@ -11,14 +11,14 @@
     </head>
     <body>
         <div id="app">
-            <button class="buttonMargin" v-on:click.left="onClick">Left button</button>
+            <button class="buttonMargin" @click.left="onClick">Left button</button>
             <br>
-            <button class="buttonMargin" v-on:click.middle="onClick">Middle button</button>
+            <button class="buttonMargin" @click.middle="onClick">Middle button</button>
             <br>
-            <button class="buttonMargin" v-on:click.right="onClick">Right button</button>
+            <button class="buttonMargin" @click.right="onClick">Right button</button>
             <br>
             <!-- Calls the event but does not show the context menu. -->
-            <button class="buttonMargin" v-on:click.right.prevent="onClick">Without context menu</button>
+            <button class="buttonMargin" @click.right.prevent="onClick">Without context menu</button>
         </div>
 
         <script>

@@ -7,6 +7,9 @@
 <body>
     <div id="app">
       <button v-on:click="incrementar">Clique</button>
+      <!-- Using v-on shortcut -->
+      <button @click="incrementar">Clique</button>
+     
       <p>Botão clicado {{ cliques }} vezes</P>
     </div>
     
