@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+       <p v-if="grade === 'A' || grade === 'a'">Congratulations, you got 'A'.</p>
+       <p v-else-if="grade === 'B' || grade === 'b'">You got 'B', but you can improve.</p>
+       <p v-else-if="grade === 'C' || grade === 'c'">You need to imorove, your grade is 'C'.</p>
+       <p v-else>Grade not yet published.</p>
+       <input v-model="grade" placeholder="Grade">
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                grade: ''
+            }
+            
+        });
+    </script>
+</body>
+</html>
