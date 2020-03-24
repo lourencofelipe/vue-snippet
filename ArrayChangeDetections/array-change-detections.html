@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+       <p>Products:</p>
+        <ul>
+            <li v-for="product in products" :key="product.id">{{ product.name }}</li>
+        </ul>
+        <button @click="addProduct">Add product</button>
+        <button @click="products = products.slice(0, 4)">Change array</button>
+        <button @click="changeProduct">Change product</button>
+        <button @click="cutArray">Cut array</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                products: [
+                    {id: 1, name: 'Monitor'},
+                    {id: 2, name: 'Keyboard'},
+                    {id: 3, name: 'Mouse'},
+                    {id: 4, name: 'Processor'}
+                ]
+            },
+            methods: {
+                addProduct: function(event){
+                    var id = this.products.length + 1;
+                    this.products.push({ id: id, name: 'Product ' + id }); 
+                },
+                changeProduct: function(event){
+                    var size = this.products.length;
+                    var index = Math.round(size / 2);
+                    var newProduct = { id: (size + 1), name: 'Product ' + (size + 1) };
+                    // Accessing like a static method.
+                    //Vue.set(this.products, index, newProduct);
+                  
+                    //Acessing through the VueJs instance.
+                    this.$set(this.products, index, newProduct);
+                },
+                cutArray: function(event){
+                     // Inclusive index.
+                    this.products.splice(2);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
