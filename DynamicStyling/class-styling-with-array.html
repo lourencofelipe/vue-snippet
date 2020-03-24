@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+        margin-right: 10px;
+        background-color: gray;
+    }
+    
+    .green {
+        background-color: lightgreen;
+    }
+    
+    .blue {
+        background-color: lightblue;
+    }
+    
+    .circle {
+        border-radius: 100%;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <h4>Type a class name</h4>
+        <ul>
+            <li>green</li>
+            <li>blue</li>
+        </ul>
+        <input style="margin-bottom: 15px" v-model="className" placeholder="CSS class name">
+        <br>
+        <div class="box" :class="['circle', className, { green: applyClass }]" @click="applyClass = !applyClass"></div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                applyClass: false,
+                className: ''
+            },
+            computed: {
+                cssClasses: function() {
+                    return {
+                        // Green will be applied when the property applyClass is false.
+                        green: !this.applyClass,
+                        blue: this.applyClass,
+                        circle: this.applyClass
+                    };
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
