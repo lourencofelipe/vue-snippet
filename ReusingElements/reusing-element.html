@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+        <!-- In this way, the input will be reused and the value will not change. 
+        If you want change the value, you need to use the 'key.-->
+       <button @click="login = !login">Toggle</button>
+       <!-- If login is true, than the template's child will be rendered -->
+       <template v-if="login">
+            <label>Login:</label>
+            <input placeholder="Login">
+       </template>
+       <template v-else>
+            <label>E-mail:</label>
+            <input placeholder="E-mail">
+       </template>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                login: true
+            }
+        });
+    </script>
+</body>
+</html>
