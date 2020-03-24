@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+       <p>Name: {{ fullName }}</p>
+       <button @click="changeName">Invert Name</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                fullName: 'Tobias Sammet'
+            },
+            watch: {
+                fullName: function(newFullName, olderFullName){
+                    let self = this;
+                    setTimeout(function(){
+                        // Will reset the name after 2 seconds.
+                        self.fullName = 'The name has been reset!';
+                    }, 2000);
+                }
+            },
+            methods: {
+                changeName: function(event){
+                    // Will invert the name after clicking the button.
+                    this.fullName = 'Sammet Tobias';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
