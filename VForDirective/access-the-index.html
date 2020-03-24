@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+       <h1>Products</h1>
+       <ul>
+          <!-- First the value is received and the second position, the index -->
+           <li v-for="(product, index) in products"> {{ index }} - {{ product }}</li>
+       </ul>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                products: [
+                    'Monitor',
+                    'Keyboard',
+                    'Mouse'
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
