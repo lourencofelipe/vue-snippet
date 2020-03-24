@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inverted Pizza Flavor</title>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+        <h5>Inverted Pizza Flavor</h5>
+        <p>{{ pizzaFlavor }} => {{ invertedPizzaFlavor }} </p>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                pizzaFlavor: 'Mushrooms and Onions'
+            },
+            computed: {
+                invertedPizzaFlavor: function(){
+                    return this.pizzaFlavor.split('').reverse().join('');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
