@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+        <style>
+            .buttonMargin {
+                margin: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <button class="buttonMargin" v-on:click.left="onClick">Left button</button>
+            <br>
+            <button class="buttonMargin" v-on:click.middle="onClick">Middle button</button>
+            <br>
+            <button class="buttonMargin" v-on:click.right="onClick">Right button</button>
+            <br>
+            <!-- Calls the event but does not show the context menu. -->
+            <button class="buttonMargin" v-on:click.right.prevent="onClick">Without context menu</button>
+        </div>
+
+        <script>
+            new Vue({
+                el:'#app',
+                methods: {
+                    onClick: function(event){   
+                        console.log('Key ' + event.button + ' was pressed');
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
