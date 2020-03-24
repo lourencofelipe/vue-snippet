@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+       <button @click="login = !login">Toggle</button>
+       <template v-if="login">
+            <label>Login:</label>
+            <!--'key' specifies and differentiates fields, 
+            so that the input is not reused and changes the value. -->
+            <input placeholder="Login" key="login-field">
+       </template>
+       <template v-else>
+            <label>E-mail:</label>
+            <input placeholder="E-mail" key="email-field">
+       </template>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                login: true
+            }
+        });
+    </script>
+</body>
+</html>
