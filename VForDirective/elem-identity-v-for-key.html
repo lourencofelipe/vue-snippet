@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+       <p>Products:</p>
+       <ul>
+           <!-- Track each element, with its unique identity, using the key property -->
+           <li v-for="product in products" :key="product.id">{{ product.name }}</li>
+       </ul>
+       <button @click="products.reverse()">Invert list</button>
+       <button @click="addProduct">Add product</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                products: [
+                    {id: 1, name: 'Monitor'},
+                    {id: 2, name: 'Keyboard'},
+                    {id: 3, name: 'Mouse'},
+                    {id: 4, name: 'Processor'}
+                ]
+            },
+            methods: {
+                addProduct: function(){
+                    // Creates a sequential id.
+                    var id = this.products.length + 1;
+                    // Creates an object with the id that was created before.
+                    this.products.push({id: id, name: 'Product ' + id});
+                }
+            }
+        });
+    </script>
+</body>
+</html>
