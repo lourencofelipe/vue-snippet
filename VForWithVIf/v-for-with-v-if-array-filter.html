@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+
+        <style>
+            .separator{
+                list-style-type: none;
+                border-bottom: 1px solid #000;
+            }
+        </style>
+    </head>
+<body>
+    <div id="app">
+        <h1>All Tasks</h1>
+        <ul>
+           <li v-for="task in tasks" :key="task.id" v-if="task">{{ task.title }}</li>
+        </ul>
+        <hr>
+        <h1>Tasks to do</h1>
+        <ul>
+           <li v-for="task in toDo" :key="task.id">{{ task.title }}</li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                tasks: [
+                    {id: 1, title: 'Learn JavaScript', completed: true},
+                    {id: 2, title: 'Learn VueJs', completed: false},
+                    {id: 3, title: 'Learn Vuex', completed: false},
+                    {id: 4, title: 'Learn VueRouter', completed: false}
+                ]
+            },
+            computed: {
+                toDo: function(){
+                    return this.tasks.filter((task) => {
+                        return !task.completed;
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
