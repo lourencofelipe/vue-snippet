@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+       <h2>Vue Instance</h2>
+       <p>{{ title}}</p>
+
+       <h3>Dynamics properties</h3>
+       <p>{{ newProperty }}</p>
+       <p>{{ user }}</p>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                title: 'JavaScript Framework',
+                user: {}
+            }
+        });
+
+        setTimeout(function(){
+            vm.newProperty = 'New Property';
+            vm.$set(vm.user, 'name', 'admin')
+        }, 3000);
+
+    </script>
+</body>
+</html>
