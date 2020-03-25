@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+        <p>Objects</p>
+        <ul>
+            <li v-for="(value, key) in product">{{ key }} : {{ value }}</li>
+        </ul>
+       <button @click="addProperty">Add property</button>
+       <button @click="changeObject">Change object</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                product: {
+                    id: 2,
+                    name: 'Keyboard',
+                    brand: 'Dell'
+                },
+                user: {
+                    name: '',
+                    age: 0
+                }
+            },
+            methods: {
+                addProperty: function(event){
+                    // Object, key, value.
+                    //Vue.set(this.product, 'price', 100);
+                    this.$set(this.product, 'price', 100);
+                },
+                changeObject: function(event){
+                    this.product = Object.assign({}, this.product, {
+                        price: 50,
+                        color: 'black'
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
