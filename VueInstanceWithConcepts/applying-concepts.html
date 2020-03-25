@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+<body>
+    <div id="app">
+       <h3 v-if="showMessage">The title has been changed!</h3>
+       <p>Title: {{ title }}</p> <!-- data property -->
+       <p>lowercase title: {{ lowerCaseTitle }}</p> <!-- computed property-->
+       <input v-model="newTitle">
+       <button @click="changeTitle">Change title</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'Vue Instance',
+                newTitle: '',
+                showMessage: false
+            },
+            methods: {
+                changeTitle: function(event) {
+                    // The new title gets the input value.
+                    this.title = this.newTitle;
+                    this.newTitle = '';
+                }
+            },
+            computed:{
+                lowerCaseTitle: function(){
+                    return this.title.toLowerCase().split(' ').join('-');
+                }
+            },
+            watch: {
+                title: function(newTitle, olderTitle){
+                    console.log('older title: ' + olderTitle);
+                    console.log('new title: ' + newTitle);
+                    this.showMessage = true;
+                    let self = this;
+                    setTimeout(function(){
+                        self.showMessage = false;
+                    }, 3000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
